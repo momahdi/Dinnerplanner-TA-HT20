@@ -1,3 +1,7 @@
 function App(model){
-document.body.textContent= model.getNumberOfGuests();
+    //subsription to get notifications
+    model.addObserver(function(){
+    document.body.textContent= model.getNumberOfGuests();
+    });    
+    document.body.textContent= model.getNumberOfGuests();
 }
