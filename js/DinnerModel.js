@@ -5,7 +5,6 @@ class DinnerModel{
      
  }
  addObserver(callback){
-     console.log(callback)
      this.subscribers= this.subscribers.concat(callback);
  }
  notifyObservers(){
