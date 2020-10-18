@@ -1,3 +1,8 @@
 function SummaryView(props){
-   return h("div",{title:"summary"},"Dinner for ",h("span",{title:"nr.guests",},props.guests)," guests" );
+   
+   return <div title="summary">
+       Dinner for
+       <span title="nr.guests"> {props.guests} </span>
+         guests
+    </div>
 }

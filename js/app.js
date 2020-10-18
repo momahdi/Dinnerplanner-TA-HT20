@@ -1,3 +1,6 @@
-function App(model){
-return h(SummaryView , {guests:model.numberOfGuests});
+function App({model}){
+return <div>
+    <SummaryView guests= {model.numberOfGuests}/>
+   </div>
+
 }
