@@ -1,6 +1,7 @@
 function App({model}){
 return <div>
-    <SummaryView guests= {model.numberOfGuests}/>
+    <Summary model= {model}/>
+    <Summary model= {model}/>
    </div>
 
 }
