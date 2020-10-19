@@ -1,6 +1,6 @@
-function App({model}){
+const App= ({model})=>{
 return <div>
-    <Summary model= {model}/>
+    <Sidebar model= {model}/>
     <Summary model= {model}/>
    </div>
 
