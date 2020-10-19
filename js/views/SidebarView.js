@@ -1,7 +1,6 @@
-const SidebarView= ({guests,minusOne})=>
+const SidebarView= ({guests,setGuests})=>
     <div>
-
-        <button onClick={minusOne}>-</button>
+        <button onClick={()=>setGuests(guests-1)}>-</button>
         {guests}
-        <button>+</button>
+        <button onClick={()=>setGuests(guests+ 1)}>+</button>
     </div>

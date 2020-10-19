@@ -1,8 +1,15 @@
 function Sidebar(model){
         const root= h("div");
-        root.append(h(SidebarView, {guests:model.model.numberOfGuests, 
-                                    minusOne: ()=> model.model.setNumberOfGuests(model.model.getNumberOfGuests()-1)
-        
-        }));
+        root.append(h(SidebarView, {guests:model.model.numberOfGuests,
+                                    setGuests: x=> model.model.setNumberOfGuests(x)}));
+
+
+     model.model.addObserver(function(){
+
+     root.firstChild.remove();
+     root.append(h(SidebarView, {guests:model.model.numberOfGuests,
+        setGuests: x=> model.model.setNumberOfGuests(x)}));
+    
+    });
     return root;
 }
