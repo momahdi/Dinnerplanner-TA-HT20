@@ -1,0 +1,28 @@
+.debug{
+    border-style:solid;
+ 
+}
+.flexParent{
+    display:flex;
+    height: 100%;
+    width:100%;
+}
+.sidebar{
+    width: 10%;
+    
+}
+.mainContent{
+    width: 100%;
+    height: 100%;
+   
+}
+@media screen and (max-width:600px){
+    .flexParent{
+       flex-direction: column;
+    }
+    .sidebar{
+        width: 100%;
+        height: 30%;
+        
+    }
+}

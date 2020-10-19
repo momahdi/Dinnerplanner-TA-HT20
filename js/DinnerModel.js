@@ -1,6 +1,6 @@
 class DinnerModel{
  constructor(){
-     this.numberOfGuests=7;
+     this.numberOfGuests=6;
      this.subscribers=[];
      
  }
