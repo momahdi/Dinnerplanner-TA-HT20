@@ -17,7 +17,7 @@ const  DishSource={
          query="";
      }
      return this.apiCall("recipes/search?type="+type+"&query="+query)  
-     .then(data=>data.results);       
+     .then(data=>data.results)
   },
 
   getDishDetails(id){

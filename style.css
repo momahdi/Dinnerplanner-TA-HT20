@@ -16,6 +16,18 @@
     height: 100%;
    
 }
+
+
+.searchParent{
+    display: flex;
+    overflow: scroll;
+}
+.searchResult{
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+}
+
 @media screen and (max-width:600px){
     .flexParent{
        flex-direction: column;
