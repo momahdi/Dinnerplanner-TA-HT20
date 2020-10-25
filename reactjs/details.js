@@ -5,7 +5,6 @@ function Details({model}){
           ()=>setPromise(DishSource.getDishDetails(547775)), []);
 
     const [data, error]= usePromise(promise);
-    console.log(data)
     return promiseNoData(promise,data,error) || 
         h(DetailsView, {
                dish: data,

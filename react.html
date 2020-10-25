@@ -20,8 +20,8 @@
         <script src="https://unpkg.com/babel-standalone/babel.js"></script>
         <script src="js/apiConfig.js"></script>
         <script src="js/disheSource.js"></script>
+         <script src="js/readModel.js"></script>
         <script src="js/DinnerModel.js"></script>
-
         
         <script src="reactjs/useModelProp.js"></script> 
         <script src="reactjs/details.js"></script> 
@@ -36,11 +36,12 @@
         <script src="js/views/searchView.js" type="text/jsx" data-presets="es2016, react"></script>
         <script src="js/views/SidebarView.js" type="text/jsx" data-presets="es2016, react"></script>
         <script src="js/views/SummaryView.js" type="text/jsx" data-presets="es2016, react"></script>
+       
         <!-- TODO: summaryView -->
         
         <script src="js/app.js" type="text/jsx"></script>
         <script type="text/jsx">
-            const model= new DinnerModel();
+            const model= readModel();
             ReactDOM.render(<App model={model}/>, document.getElementById("app"));
         </script>
         
