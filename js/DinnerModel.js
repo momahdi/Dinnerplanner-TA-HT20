@@ -19,6 +19,7 @@ class DinnerModel{
             console.log("Error ", err, callback);}
         }
     );
+    console.log(this.dishes)
     localStorage.setItem("dinnerModel", 
     JSON.stringify({guests: this.numberOfGuests, 
         dishes: this.dishes,
@@ -41,13 +42,24 @@ getNumberOfGuests(){
 }
 
 addToMenu(dish){
-    if(this.dishes.map(dishinmenu=> {
+ if(this.dishes){
+    this.dishes.map(dishinmenu=> {
         if(dishinmenu.id===dish.id){
             throw "Dish is already in Menu"
-        }
-    }))
-        this.dishes=[dish, ...this.dishes]
-        this.notifyObservers()
+        } 
+    })
+} 
+if (Array.isArray(dish)){
+    this.dishes=[...dish,...this.dishes]
+    this.notifyObservers()
+}  
+
+else{
+    this.dishes=[dish,...this.dishes]
+    this.notifyObservers()
+
+}
+
 }
 
 getMenu(){
@@ -55,13 +67,28 @@ getMenu(){
 }
 
 removeFromMenu(dishid){
-    this.dishes=this.dishes.filter(dishes=> dishes.id === dishid);
+    this.dishes=this.dishes.filter(dishes=> dishes.id !== dishid);
     this.notifyObservers()
 }
 
 setCurrentDish(id){
 this.currentDish=id;
 this.notifyObservers()
+}
+
+presntIng(menu){
+
+let allIng=menu.map((dish)=>dish.extendedIngredients).flat();
+let filterIngred =new Map();
+allIng.map((ing)=>{
+    if (filterIngred.has(ing.name)){
+        const pA = filterIngred.get(ing.name).amount;
+        filterIngred.set(ing.name,{name: ing.name,aisle:ing.aisle, amount: ing.amount+pA});
+    }else filterIngred.set(ing.name,{name: ing.name,aisle:ing.aisle, amount: ing.amount})
+})
+return [...filterIngred.values()];
+
+
 }
 
 }

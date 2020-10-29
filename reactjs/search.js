@@ -1,4 +1,4 @@
-function Search(){
+function Search({model}){
     const [type, setType]= React.useState(""); 
     const [query, setQuery]= React.useState("");
   
@@ -13,5 +13,6 @@ function Search(){
         onSearch: ()=> setPromise(DishSource.searchDishes({type:type,query:query}))
     }) 
     ,promiseNoData(promise,data,error) ||
-             h(SearchResultsView, {searchResults:data }));
+             h(SearchResultsView, {searchResults:data,
+                                    dishChosen: dishId=>model.setCurrentDish(dishId)}));
 }

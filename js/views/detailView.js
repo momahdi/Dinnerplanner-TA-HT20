@@ -1,5 +1,8 @@
-const DetailsView=({dish,guests})=> 
+const DetailsView=({dish,guests,dishAdded,isDishInMenu})=> 
 <div>
+<button className="addDish"onClick={()=>dishAdded(dish)} disabled={isDishInMenu(dish.id)}>
+  ADD
+</button>
 <h3>{dish.title}</h3>
 <img width="200" heigth="200"src={dish.image}/>
 <div>Price: {dish.pricePerServing}</div>

@@ -4,6 +4,7 @@ function usePromise(promise) {
     React.useEffect(function(){ 
         setData(null); 
         setError(null);
+        
         if(promise){
        promise.then(data=>setData(data)).catch(error=>setError(error));
     }}, [promise]);
