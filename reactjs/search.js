@@ -1,4 +1,4 @@
-function Search({model}){
+function Search({model,nav,resultChoice}){
     const [type, setType]= React.useState(""); 
     const [query, setQuery]= React.useState("");
   
@@ -10,9 +10,10 @@ function Search({model}){
     , h(SearchFormView, {
         onText: query=> setQuery(query),
         onType: type=> setType(type),
-        onSearch: ()=> setPromise(DishSource.searchDishes({type:type,query:query}))
+        onSearch: ()=> setPromise(DishSource.searchDishes({type:type,query:query})),
+        nav
     }) 
     ,promiseNoData(promise,data,error) ||
              h(SearchResultsView, {searchResults:data,
-                                    dishChosen: dishId=>model.setCurrentDish(dishId)}));
+                                    dishChosen: dishId=>model.setCurrentDish(dishId),resultChoice}));
 }

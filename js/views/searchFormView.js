@@ -1,4 +1,4 @@
-const SearchFormView=({onSearch, onType, onText})=> 
+const SearchFormView=({onSearch, onType, onText,nav:[navCallback,navLabel]})=> 
 <div>
 <input  type="text" onChange={event=>onText(event.target.value)}/>
 
@@ -6,4 +6,6 @@ const SearchFormView=({onSearch, onType, onText})=>
             {["starter", "main course", "dessert"].map(k=> <option key={k} >{k}</option>)}
             </select>
             <button onClick={onSearch} className="btn">Search</button>
+            <button onClick={navCallback} className="btn">{navLabel}</button>
+            
 </div>;

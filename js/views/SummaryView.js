@@ -12,11 +12,12 @@ function compareIngredients(a,b){
 
 
 
-function SummaryView(props){
+function SummaryView({guests,dishes,menuIngredient,nav:[navCallback,navLabel]}){
    
    return <div title="summary">
+       <button onClick={navCallback} className="btn">{navLabel}</button>
        Dinner for
-       <span title="nr.guests"> {props.guests} </span>
+       <span title="nr.guests"> {guests} </span>
          guests
          <div title="sidebarDish">
         <table>
@@ -27,7 +28,7 @@ function SummaryView(props){
                 <th>Quantity</th>
             </tr>
             </thead>
-                    {props.menuIngredient(props.dishes).sort(compareIngredients).map(ing=>(
+                    {menuIngredient(dishes).sort(compareIngredients).map(ing=>(
                         <tbody>
                             <tr>
                                 <td>{ing.name}</td>
