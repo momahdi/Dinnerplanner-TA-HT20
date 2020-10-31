@@ -4,7 +4,7 @@ const App= ({model})=>{
         <div className="mainContent debug">
            <div class="debug"><Search model ={model}/></div>
            <div class="debug"><Details model={model}/></div>
-           <Summary model={model}/>
+           <Show hash="#summary"><Summary model={model}/></Show>
        </div>
       </div>
     }
