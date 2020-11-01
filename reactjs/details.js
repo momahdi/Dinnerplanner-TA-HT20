@@ -1,4 +1,4 @@
-function Details({model,cancel}){ 
+function Details({model,ok:[addNav,addLabel],cancel}){ 
     const [promise, setPromise]= React.useState(null);
     const guests =useModelProp(model, "numberOfGuests");
     const currentDish =useModelProp(model,"currentDish")
@@ -15,7 +15,7 @@ function Details({model,cancel}){
         h(DetailsView, {
                dish: data,
                guests: guests,
-               dishAdded:(dish)=>model.addToMenu(dish),
+               dishAdded:(dish)=>{model.addToMenu(dish);addNav()},addLabel,
                isDishInMenu: dishID=>dishes.find(dish1=> dish1.id===dishID),
                cancel
           });   

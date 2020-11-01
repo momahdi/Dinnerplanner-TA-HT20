@@ -19,7 +19,7 @@ function compareDishes(a,b){
 
 
 
-const SidebarView= ({guests,setGuests,dishes,removeDish})=>
+const SidebarView= ({guests,setGuests,dishes,removeDish,dishChoiceRoute,dishChosen})=>
 <div>
     <div class="sidebarbutton">
         <button onClick={()=>setGuests(guests-1)} disabled={guests ===1 } >-</button>
@@ -41,7 +41,7 @@ const SidebarView= ({guests,setGuests,dishes,removeDish})=>
                             <tr>
                                 <td>
                                 <button onClick={()=>removeDish(dish.id)}>X</button>
-                                {dish.title}</td>
+                                <a href ={dishChoiceRoute} onClick={event=>dishChosen(dish.id)}>{dish.title}</a></td>
                                 <td>{dishType(dish)}</td>
                                 <td>{dish.pricePerServing*guests}</td>
                                 
@@ -53,7 +53,7 @@ const SidebarView= ({guests,setGuests,dishes,removeDish})=>
                           <tr>
                             <td>Total Menu Price</td>
                             <td></td>
-                         <td>{dishes.reduce((accumulator,dish)=>accumulator+dish.pricePerServing*guests,0)}</td>
+                         <td>{dishes.reduce((accumulator,dish)=>accumulator+dish.pricePerServing*guests,0).toFixed(2)}</td>
                           </tr>
                     </tbody>
                         
