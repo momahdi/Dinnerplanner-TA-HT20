@@ -1,4 +1,4 @@
-const SearchResultsView= ({searchResults,dishChosen,resultChoice})=>
+const SearchResultsView= ({searchResults,dishChosen,resultChoice,h})=>
 
 <div className="searchParent">
    {searchResults.map(dish=> 

@@ -1,4 +1,4 @@
-function Sidebar({model,dishChoiceRoute,dishChosen}){
+function Sidebar({model,dishChoiceRoute,dishChoice}){
     const guests =useModelProp(model, "numberOfGuests");
     const dishes=useModelProp(model,"dishes")
     console.log(dishes)
@@ -8,7 +8,7 @@ function Sidebar({model,dishChoiceRoute,dishChosen}){
         setGuests: n=> model.setNumberOfGuests(n),
         dishes: dishes,
         removeDish:dishid=> model.removeFromMenu(dishid),dishChoiceRoute,
-        dishChosen: dishId=> {model.setCurrentDish(dishId),dishChosen}
+        dishChosen: dishId=> {model.setCurrentDish(dishId),dishChoice}
         
     });
 }

@@ -1,4 +1,4 @@
-const SearchFormView=({onSearch, onType, onText,nav:[navCallback,navLabel]})=> 
+const SearchFormView=({onSearch, onType, onText,nav:[navCallback,navLabel],h})=> 
 <div>
 <input  type="text" onChange={event=>onText(event.target.value)}/>
 

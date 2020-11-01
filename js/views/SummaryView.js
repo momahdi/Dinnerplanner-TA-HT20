@@ -12,7 +12,7 @@ function compareIngredients(a,b){
 
 
 
-function SummaryView({guests,dishes,menuIngredient,nav:[navCallback,navLabel]}){
+function SummaryView({guests,dishes,menuIngredient,nav:[navCallback,navLabel],h}){
    
    return <div title="summary">
        <button onClick={navCallback} className="btn">{navLabel}</button>
