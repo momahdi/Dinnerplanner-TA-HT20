@@ -20,9 +20,9 @@ const App= ({model,h})=>{
         <div className="sidebar debug"><Sidebar model={model} dishChoiceRoute="#details" dishChoice={dishChoice}/></div>
 
         <div className="mainContent debug">
-
+           <Show hash="#search"><Search model ={model} nav={summaryNav} resultChoice={dishChoice}/></Show>
            <Show hash="#summary"><Summary model={model} nav={backToSearch}/></Show>
-    
+           <Show hash="#details"><Details model={model} ok={addToMenu} cancel={backToSearch}/></Show>
        </div>
       </div>
     }
