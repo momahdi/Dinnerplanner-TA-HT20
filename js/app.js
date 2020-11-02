@@ -18,7 +18,6 @@ addEventListener("hashchange",function(){
 const App= ({model,h})=>{
  return <div className="flexParent">
         <div className="sidebar debug"><Sidebar model={model} dishChoiceRoute="#details" dishChoice={dishChoice}/></div>
-
         <div className="mainContent debug">
            <Show hash="#search"><Search model ={model} nav={summaryNav} resultChoice={dishChoice}/></Show>
            <Show hash="#summary"><Summary model={model} nav={backToSearch}/></Show>

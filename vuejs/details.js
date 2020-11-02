@@ -2,20 +2,19 @@ const Details={
     props:["model", "ok", "cancel"],
     data(){
        return {
-         promise: this.model.currentDish && DishSource.getDishDetails(this.model.currentDish),
+         promise: null,
          data:null, 
          error:null     
         };
       },
-     created(){
-        this.promise.then(data=>this.data=data).catch(err=>this.error=err)
-      },
       watch:{
-          'model.currentDish': function(){
+          'model.currentDish':{
+            immediate:true 
+          ,handler(){
                 this.promise= this.model.currentDish&& DishSource.getDishDetails(this.model.currentDish);
                 this.data=null;   
                 this.error=null;
-                this.promise.then(data=>this.data=data).catch(err=>this.error=err);
+                this.promise.then(data=>this.data=data).catch(err=>this.error=err);}
           }
       },
       render(h){ 
